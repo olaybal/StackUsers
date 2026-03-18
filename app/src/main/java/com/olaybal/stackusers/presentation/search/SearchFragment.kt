@@ -44,6 +44,11 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         observeUiState()
     }
 
+    override fun onResume() {
+        super.onResume()
+        searchUsers()
+    }
+
     private fun setupRecyclerView() {
         binding?.rvUsers?.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -70,7 +75,6 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         viewModel.uiState.observe(viewLifecycleOwner) { state ->
             render(state)
         }
-        viewModel.search()
     }
 
     private fun render(state: SearchUiState) {

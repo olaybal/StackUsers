@@ -10,5 +10,14 @@ class SearchUsersUseCase(
 
     operator fun invoke(query: String): Single<List<User>> {
         return repository.searchUsers(query)
+            .map { users ->
+                users
+                    .sortedBy { it.name.lowercase() }
+                    .take(MAX_RESULTS)
+            }
+    }
+
+    private companion object {
+        const val MAX_RESULTS = 20
     }
 }

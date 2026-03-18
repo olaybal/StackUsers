@@ -1,5 +1,6 @@
 package com.olaybal.stackusers.di
 
+import com.olaybal.stackusers.data.remote.StackExchangeApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,4 +35,9 @@ object NetworkModule {
             .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
+
+    @Provides
+    @Singleton
+    fun provideApi(retrofit: Retrofit): StackExchangeApi =
+        retrofit.create(StackExchangeApi::class.java)
 }

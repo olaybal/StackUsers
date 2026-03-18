@@ -14,6 +14,12 @@ Stack Users is a modern Android application that allows users to search and brow
 
 ---
 
+## 🎥 Demo
+
+![App Demo](docs/demo.gif)
+
+---
+
 ## 🛠 Tech Stack
 
 - **Kotlin**

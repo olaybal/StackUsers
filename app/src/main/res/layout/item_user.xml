@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
@@ -12,17 +13,17 @@
         android:id="@+id/tvUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="16sp"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="Jon Skeet" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:text="Jon Skeet" />
 
     <TextView
         android:id="@+id/tvReputation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Reputation: 1000" />
+        tools:text="Reputation: 1000" />
 
 </LinearLayout>

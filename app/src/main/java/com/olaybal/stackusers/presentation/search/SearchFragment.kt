@@ -86,7 +86,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
             SearchUiState.Empty -> {
                 showLoading(false)
                 userAdapter.submitList(emptyList())
-                showMessage(true, "No users found")
+                showMessage(true, getString(R.string.search_no_users_found))
             }
 
             is SearchUiState.Error -> {

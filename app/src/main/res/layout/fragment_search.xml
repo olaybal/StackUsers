@@ -11,7 +11,7 @@
         android:id="@+id/etSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Search StackOverflow user"
+        android:hint="@string/search_input_hint"
         android:inputType="text"
         android:maxLines="1" />
 
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Search" />
+        android:text="@string/search_button" />
 
     <ProgressBar
         android:id="@+id/progressBar"

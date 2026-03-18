@@ -1,8 +1,11 @@
-package com.olaybal.stackusers
+package com.olaybal.stackusers.app
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.olaybal.stackusers.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

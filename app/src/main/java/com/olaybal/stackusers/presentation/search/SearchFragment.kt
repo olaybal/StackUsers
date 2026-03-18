@@ -53,9 +53,17 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private fun setupListeners() {
         binding?.btnSearch?.setOnClickListener {
-            val query = binding?.etSearch?.text?.toString().orEmpty()
-            viewModel.search(query)
+            searchUsers()
         }
+
+        binding?.swipeRefresh?.setOnRefreshListener {
+            searchUsers()
+        }
+    }
+
+    private fun searchUsers() {
+        val query = binding?.etSearch?.text?.toString().orEmpty().trim()
+        viewModel.search(query)
     }
 
     private fun observeUiState() {
@@ -99,7 +107,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
     }
 
     private fun showLoading(isVisible: Boolean) {
-        binding?.progressBar?.visibility = if (isVisible) View.VISIBLE else View.GONE
+        binding?.swipeRefresh?.isRefreshing = isVisible
     }
 
     private fun showMessage(

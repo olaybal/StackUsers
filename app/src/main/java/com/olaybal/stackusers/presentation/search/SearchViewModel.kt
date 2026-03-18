@@ -20,12 +20,7 @@ class SearchViewModel @Inject constructor(
     private val mutableUiState = MutableLiveData<SearchUiState>(SearchUiState.Idle)
     val uiState: LiveData<SearchUiState> = mutableUiState
 
-    fun search(query: String) {
-        if (query.isBlank()) {
-            mutableUiState.value = SearchUiState.Error("Please enter a username")
-            return
-        }
-
+    fun search(query: String = "") {
         mutableUiState.value = SearchUiState.Loading
 
         val disposable = searchUsersUseCase(query.trim())

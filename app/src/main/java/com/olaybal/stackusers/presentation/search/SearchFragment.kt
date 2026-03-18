@@ -62,6 +62,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         viewModel.uiState.observe(viewLifecycleOwner) { state ->
             render(state)
         }
+        viewModel.search()
     }
 
     private fun render(state: SearchUiState) {

@@ -72,13 +72,17 @@ class SearchViewModelTest {
     }
 
     @Test
-    fun `search should emit error when query is blank`() {
-        viewModel.search("")
-
-        assertEquals(
-            SearchUiState.Error("Please enter a username"),
-            viewModel.uiState.value,
+    fun `loadInitialUsers should emit success when users are returned`() {
+        val users = listOf(
+            User(1, "John", 100, "", null, null)
         )
+
+        Mockito.`when`(searchUsersUseCase(""))
+            .thenReturn(Single.just(users))
+
+        viewModel.search()
+
+        assertEquals(SearchUiState.Success(users), viewModel.uiState.value)
     }
 
     @Test

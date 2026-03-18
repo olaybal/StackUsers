@@ -71,6 +71,8 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
         Glide.with(this)
             .load(user.avatarUrl)
+            .placeholder(R.mipmap.ic_launcher)
+            .error(R.mipmap.ic_launcher)
             .into(binding!!.ivAvatar)
     }
 

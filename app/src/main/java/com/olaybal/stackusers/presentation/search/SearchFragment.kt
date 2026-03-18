@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.olaybal.stackusers.R
 import com.olaybal.stackusers.databinding.FragmentSearchBinding
@@ -20,11 +21,13 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
     private val userAdapter by lazy {
         UserAdapter { user ->
-            Toast.makeText(
-                requireContext(),
-                "Clicked: ${user.name}",
-                Toast.LENGTH_SHORT,
-            ).show()
+            val bundle = Bundle().apply {
+                putLong("userId", user.id)
+            }
+            findNavController().navigate(
+                R.id.action_searchFragment_to_detailsFragment,
+                bundle,
+            )
         }
     }
 

@@ -79,6 +79,10 @@ dependencies {
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
 
+    // Glide
+    implementation(libs.glide)
+    ksp(libs.glide.compiler)
+
     // Testing
     testImplementation(libs.junit)
     testImplementation(libs.mockito)

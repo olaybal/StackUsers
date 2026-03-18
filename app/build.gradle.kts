@@ -59,6 +59,7 @@ dependencies {
 
     // Retrofit
     implementation(libs.retrofit)
+    implementation(libs.retrofit.rxjava2)
     implementation(libs.retrofit.gson)
 
     // OkHttp

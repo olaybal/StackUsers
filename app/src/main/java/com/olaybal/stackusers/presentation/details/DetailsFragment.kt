@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.olaybal.stackusers.R
 import com.olaybal.stackusers.databinding.FragmentDetailsBinding
 import com.olaybal.stackusers.domain.model.User
@@ -71,8 +72,11 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
 
         Glide.with(this)
             .load(user.avatarUrl)
-            .placeholder(R.mipmap.ic_launcher)
-            .error(R.mipmap.ic_launcher)
+            .placeholder(R.drawable.ic_avatar_placeholder)
+            .error(R.drawable.ic_avatar_placeholder)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .skipMemoryCache(false)
+            .circleCrop()
             .into(binding!!.ivAvatar)
     }
 

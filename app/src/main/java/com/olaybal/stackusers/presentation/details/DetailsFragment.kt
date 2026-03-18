@@ -54,9 +54,20 @@ class DetailsFragment : Fragment(R.layout.fragment_details) {
         binding?.tvError?.visibility = View.GONE
 
         binding?.tvName?.text = user.name
-        binding?.tvReputation?.text = "Reputation: ${user.reputation}"
-        binding?.tvLocation?.text = "Location: ${user.location ?: "N/A"}"
-        binding?.tvCreationDate?.text = "Created: ${user.creationDate?.toReadableDate() ?: "N/A"}"
+        binding?.tvReputation?.text = getString(
+            R.string.search_details_reputation,
+            user.reputation
+        )
+        binding?.tvLocation?.text =
+            getString(
+                R.string.search_details_location,
+                user.location ?: "N/A"
+            )
+        binding?.tvCreationDate?.text =
+            getString(
+                R.string.search_details_created,
+                user.creationDate?.toReadableDate() ?: "N/A"
+            )
 
         Glide.with(this)
             .load(user.avatarUrl)
